@@ -4,5 +4,5 @@ The motivation of this project is to replicate results from the [repository of B
  - Given the opening, closing, min, max, and volume of a stock in the previous 9 days (and given the opening price of a stock on day 10) can we predict the directional movement of a stock on day 10?
 
 # Files
-- **process.ipynb** Notebook describing my work
-- **data.csv** csv file containing opening, closing, min, max, and volume of 94 stock in 500 days. The first opening date price is scaled to 1.
+- **process.ipynb**: A Jupyter Notebook describing my work.
+- **data.csv**: A csv file containing opening, closing, min, max, and volume of 94 stock in 500 days. The first opening date price is scaled to 1.

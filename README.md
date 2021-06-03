@@ -6,3 +6,5 @@ The motivation of this project is to replicate the results of the [repository of
 # Files
 - **process.ipynb**: A Jupyter Notebook describing my work.
 - **datasets/ohlc_data.csv**: A csv file containing opening, closing, min, max, and volume of 94 stock in 500 days. The first opening date price is scaled to 1.
+
+![ohlc_data](./images/stocks_closePrice.png)

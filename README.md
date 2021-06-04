@@ -7,7 +7,7 @@ The motivation of this project is to replicate the results of the [repository of
 # Files
 - **process.ipynb**: A Jupyter Notebook describing my work.
 - **datasets/ohlc_data.csv**: A csv file containing opening, closing, min, max, and volume of 94 stock in 500 days. The first opening date price is scaled to 1.
-
+Here is the closing price data of the 94 tickers in 500 days:
 ![ohlc_data](./images/stocks_closePrice.png)
 
 # Insights
@@ -19,5 +19,9 @@ It seems that the closing price is negatively correlated to the upward/downward 
 ![graph_statistics](./images/graph_statistics.png)
 
 
-# Future works
-What would the performance look like in 2021?
+# Next steps
+- Comparing multiple machine learning models and the accuracies
+- What happens if we change the number of previous days (n) from 10 to other numbers?
+- Is there subsets of data that represents industries with correlations? How would dividing the dataset change the performance of the model?
+- Will tuning the hyperparameteres improve the model?
+- What is the predictive power of the model applied to the recent years of the US and and other countries data?

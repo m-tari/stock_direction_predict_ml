@@ -9,8 +9,8 @@ st.write(
 '''
 )
 
-data = pd.read_csv('../datasets/ohlc_data.csv')
-pred_df = pd.read_csv('../predictions/predictions.csv')
+data = pd.read_csv('./datasets/ohlc_data.csv')
+pred_df = pd.read_csv('./predictions/predictions.csv')
 
 movement_to_show = st.selectbox('Select the movement prediction', [0,1])
 

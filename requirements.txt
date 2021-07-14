@@ -18,7 +18,6 @@ beautifulsoup4==4.9.3
 bleach==3.2.1
 blinker==1.4
 blivet==3.3.3
-blivet-gui==2.2.1
 Brlapi==0.8.2
 bs4==0.0.1
 cachetools==4.2.1

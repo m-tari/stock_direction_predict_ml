@@ -6,31 +6,39 @@ st.write(
 '''
 # Will stock X's price go up or down the next day?
 
+
+Is there any pattern in the day to day movement of the stock prices? The app presents the
+prediction of the machine learning model at
+
 '''
 )
+st.markdown('[https://github.com/m-tari/stock_direction_predict_ml](https://github.com/m-tari/stock_direction_predict_ml)')
 
 data = pd.read_csv('./datasets/ohlc_data.csv')
 pred_df = pd.read_csv('./predictions/predictions.csv')
+# pred_df.set_index('ticker')
 
-movement_to_show = st.selectbox('Select the movement prediction', ['Upward','Downward'])
+movement_to_show = st.selectbox('Select the movement prediction', ['upward','downward'])
 
-if movement_to_show == 'Upward':
+st.write('Here is the list of tickers that are predicted to move', movement_to_show, ':')
+
+if movement_to_show == 'upward':
 
 	pred_df_show = pred_df.loc[pred_df['movement'] == 1]
-
+	pred_df.reset_index()
 	st.dataframe(pred_df_show['ticker'])
 
-elif movement_to_show == 'Downward':
+elif movement_to_show == 'downward':
 
 	pred_df_show = pred_df.loc[pred_df['movement'] == 0]
-
+	pred_df.reset_index()
 	st.dataframe(pred_df_show['ticker'])
 
 
 # Show close price history
 ticker = st.number_input('Enter a ticker to show the historical price and volume data', 
-	min_value=0, 
-	max_value=93, 
+	min_value=1, 
+	max_value=94, 
 	format='%d')
 
 # we use regular expression to select Close and Volume columns in data

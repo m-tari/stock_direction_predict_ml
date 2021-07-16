@@ -12,23 +12,26 @@ st.write(
 data = pd.read_csv('./datasets/ohlc_data.csv')
 pred_df = pd.read_csv('./predictions/predictions.csv')
 
-movement_to_show = st.selectbox('Select the movement prediction', [0,1])
+movement_to_show = st.selectbox('Select the movement prediction', ['Upward','Downward'])
 
-if movement_to_show == 1:
+if movement_to_show == 'Upward':
 
 	pred_df_show = pred_df.loc[pred_df['movement'] == 1]
 
-	st.dataframe(pred_df_show)
+	st.dataframe(pred_df_show['ticker'])
 
-elif movement_to_show == 0:
+elif movement_to_show == 'Downward':
 
 	pred_df_show = pred_df.loc[pred_df['movement'] == 0]
 
-	st.dataframe(pred_df_show)
+	st.dataframe(pred_df_show['ticker'])
 
 
 # Show close price history
-ticker = st.number_input('Enter a ticker to show the historical price and volume data')
+ticker = st.number_input('Enter a ticker to show the historical price and volume data', 
+	min_value=0, 
+	max_value=93, 
+	format='%d')
 
 # we use regular expression to select Close and Volume columns in data
 data_cols = data.columns
@@ -46,7 +49,19 @@ volume_renamed = volume.rename(lambda s: s.strip("V"))
 volume_renamed.index = volume_renamed.index.astype('int64')
 
 # Draw Close and Volume plots
+st.write(
+'''
+### Price Historical Data
+
+'''
+)
 st.line_chart(close_renamed)
+st.write(
+'''
+### Volume Historical Data
+
+'''
+)
 st.line_chart(volume_renamed)
 
 st.write("""

@@ -13,33 +13,21 @@ prediction of the machine learning model at
 '''
 )
 st.markdown('[https://github.com/m-tari/stock_direction_predict_ml](https://github.com/m-tari/stock_direction_predict_ml)')
+st.write('The close price of 94 anonymized stocks are scaled to day 1 for 500 days.')
+
 
 data = pd.read_csv('./datasets/ohlc_data.csv')
 pred_df = pd.read_csv('./predictions/predictions.csv')
-# pred_df.set_index('ticker')
-
-movement_to_show = st.selectbox('Select the movement prediction', ['upward','downward'])
-
-st.write('Here is the list of tickers that are predicted to move', movement_to_show, ':')
-
-if movement_to_show == 'upward':
-
-	pred_df_show = pred_df.loc[pred_df['movement'] == 1]
-	pred_df.reset_index()
-	st.dataframe(pred_df_show['ticker'])
-
-elif movement_to_show == 'downward':
-
-	pred_df_show = pred_df.loc[pred_df['movement'] == 0]
-	pred_df.reset_index()
-	st.dataframe(pred_df_show['ticker'])
 
 
 # Show close price history
-ticker = st.number_input('Enter a ticker to show the historical price and volume data', 
+ticker = st.number_input('Enter a ticker to show the historical price and volume data (a number from 1-94)', 
 	min_value=1, 
 	max_value=94, 
-	format='%d')
+	format='%d',
+	key='ticker')
+
+# TODO: An input number for the number of days to display
 
 # we use regular expression to select Close and Volume columns in data
 data_cols = data.columns
@@ -59,7 +47,7 @@ volume_renamed.index = volume_renamed.index.astype('int64')
 # Draw Close and Volume plots
 st.write(
 '''
-### Price Historical Data
+### Close Price Historical Data
 
 '''
 )
@@ -72,9 +60,24 @@ st.write(
 )
 st.line_chart(volume_renamed)
 
+
+ticker_to_predict = st.number_input('Enter a ticker to show the movement prediction (a number from 1-94)', 
+	min_value=1, 
+	max_value=94, 
+	format='%d',
+	key='ticker_to_predict')
+
+# predict button
+if st.button('Predict the next day movment'):
+	movement_to_show = pred_df.loc[ticker_to_predict-1, 'movement']
+	if movement_to_show == 1:
+		st.write('Upward')
+	elif movement_to_show == 0:
+		st.write('Downward')
+
 st.write("""
 
-**Disclaimer**: 
+Disclaimer: 
 This content is for educational purposes only. The Information should not be construed as investment/trading advice and is not meant to be a solicitation or recommendation to buy, sell, or hold any securities.
 
 

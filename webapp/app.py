@@ -86,8 +86,6 @@ def main():
 		OC_cols = filter(r_OC.match, data_cols)
 		OC_df = data.loc[ticker_to_predict-1, OC_cols].iloc[880:899].to_frame().T
 
-		st.write(OC_df)
-
 		movement_to_show = prediction(OC_df)
 		if movement_to_show == 1:
 			st.write('Upward')

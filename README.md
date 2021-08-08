@@ -17,14 +17,14 @@ Here is the closing price data of the 94 tickers in 500 days:
 Install the requiremnts of this project with pip
 
 ```bash
-  pip install -r requirements.txt
+pip install -r requirements.txt
 ```
     
 And then run `jupyter notebook`
 
 ```bash
 cd stock_direction_predict_ml
-  jupyter notebook process.ipynb
+jupyter notebook process.ipynb
 ```  
 ## Insights
 It seems that the closing price is negatively correlated to the upward/downward movement of the last day's price.

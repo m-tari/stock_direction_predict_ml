@@ -36,7 +36,7 @@ It seems that the closing price is negatively correlated to the upward/downward 
 
 
 ## Next steps
-- Comparing multiple machine learning models and the accuracies
+- Comparing multiple machine learning models
 - What happens if we change the number of previous days (n) from 10 to other numbers?
 - Is there subsets of data that represents industries with correlations? How would dividing the dataset change the performance of the model?
 - Will tuning the hyperparameteres improve the model?

@@ -40,4 +40,4 @@ It seems that the closing price is negatively correlated to the upward/downward 
 - What happens if we change the number of previous days (n) from 10 to other numbers?
 - Is there subsets of data that represents industries with correlations? How would dividing the dataset change the performance of the model?
 - Will tuning the hyperparameteres improve the model?
-- What is the predictive power of the model applied to the recent years of the US and and other countries data?
+- What is the predictive power of the model applied to the recent years of the US and other countries data?
